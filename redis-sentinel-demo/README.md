@@ -8,7 +8,7 @@
 * Each of the three instances will also have a redis sentinel server 
   running along side it for monitoring/service discovery
   
-  ![Master Slave vs Sentinel](Sentinel setup.jpg)
+  ![Master Slave vs Sentinel](Master_Slave_vs_Sentinel.jpg)
 
 # **Config**
 
