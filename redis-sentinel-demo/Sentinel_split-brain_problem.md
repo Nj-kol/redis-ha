@@ -13,6 +13,9 @@
   
   • There is a client connected to the current master and writing to it
 
+ ![Sentinel_Split_brain_problem](Split_brain_problems.jpg)
+
+
 * If a network partition occurs and separates the current master from all of its slaves,
   and the slaves can still talk to each other, one of the slaves will be promoted to master
 
