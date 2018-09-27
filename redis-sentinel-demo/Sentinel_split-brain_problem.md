@@ -7,16 +7,16 @@
 * To demonstrate how Redis Sentinel will lose data when a split-brain occurs,
   assume the following:
   
-  • There are three Redis instances: 
+  i. There are three Redis instances: 
 
-    one master and two replicas. For each Redis instance, there is a Redis Sentinel
+     one master and two replicas. For each Redis instance, there is a Redis Sentinel
   
-  • There is a client connected to the current master and writing to it
+  ii. There is a client connected to the current master and writing to it
 
 
     ![Sentinel_Split_brain_problem](Split_brain_problems.jpg)
 
-                 **Sentinel_Split_brain_problem**
+                 Fig - Sentinel_Split_brain_problem
 
 * If a network partition occurs and separates the current master from all of its slaves,
   and the slaves can still talk to each other, one of the slaves will be promoted to master
