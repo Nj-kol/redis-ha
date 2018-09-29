@@ -1,5 +1,5 @@
 
-# Replication
+# Async Replication
 
 * Replication means that while you write to a Redis instance (usually referred to as the
   master), it will ensure that one or more instances (usually referred to as the slaves)
