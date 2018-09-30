@@ -29,24 +29,35 @@
 * In total there would be three directories, six files
 
 mkdir <some_path>
+
 mkdir <some_path>/node1
+
 mkdir <some_path>/node2
+
 mkdir <some_path>/node3
  
 # Master node config
 
 **redis.conf**
-bind 127.0.0.1
-port 6380
-dir .
-** sentinel.conf **
 
 bind 127.0.0.1
+
+port 6380
+
+dir .
+
+**sentinel.conf**
+
+bind 127.0.0.1
+
 port 16380
 
 sentinel monitor redis-cluster 127.0.0.1 6380 2
+
 sentinel down-after-milliseconds redis-cluster 5000
+
 sentinel parallel-syncs redis-cluster 1
+
 sentinel failover-timeout redis-cluster 10000
 
 # Slave node config
@@ -54,8 +65,11 @@ sentinel failover-timeout redis-cluster 10000
 **redis.conf**
 
 bind 127.0.0.1
+
 port 6381
+
 dir .
+
 slaveof 127.0.0.1 6380
 
 * There is not much difference between the master file, except the
@@ -74,16 +88,21 @@ slaveof 127.0.0.1 6380
 #### Starting the master node
 
 redis-server /<relative_path>/node1/redis.conf
+
 redis-server /<relative_path>/node1/sentinel.conf --sentinel
 
 #### Starting the slaves
 
 *Slave 1*
+
 redis-server /<relative_path>/node2/redis.conf
+
 redis-server /<relative_path>/node2/sentinel.conf --sentinel
 
 *Slave 2*
+
 redis-server /<relative_path>/node3/redis.conf
+
 redis-server /<relative_path>/node3/sentinel.conf --sentinel
 
 
